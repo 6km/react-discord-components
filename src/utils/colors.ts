@@ -7,3 +7,5 @@ export var floating = "#18191c";
 export var nestedFloating = "#2f3136"
 
 export var brandColor = "#5865F2";
+
+export var success = "#3ba55d";

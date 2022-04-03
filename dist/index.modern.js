@@ -1,10 +1,12 @@
 import React__default, { useState, useCallback, createElement } from 'react';
 import styled from 'styled-components';
+import { PlusIcon, LightningBoltIcon } from '@heroicons/react/solid';
 
 var primary = "#36393f";
 var tertiary = "#202225";
 var floating = "#18191c";
 var brandColor = "#5865F2";
+var success = "#3ba55d";
 
 let _ = t => t,
     _t,
@@ -122,8 +124,9 @@ p {
     border-radius: 16px;
     cursor: pointer;
     background: ${0};
+    color: white;
 }
-`), primary, brandColor);
+`), primary, props => props.color);
 var NamePopup$1 = styled.div(_t3$1 || (_t3$1 = _$1`
 background: ${0};
 color: white;
@@ -165,7 +168,9 @@ function CircleButton(data) {
   return React__default.createElement(ButtonContainer, {
     onMouseEnter: mouseMoveCallback,
     onMouseLeave: mouseMoveCallback
-  }, React__default.createElement(ButtonShape, null, data.icon ? React__default.createElement(data.icon, {
+  }, React__default.createElement(ButtonShape, {
+    color: data.color
+  }, data.icon ? React__default.createElement(data.icon, {
     width: "29px",
     height: "20px"
   }) : React__default.createElement("p", null, getShortName(data.name))), isHovering && React__default.createElement(NamePopup$1, null, data.name));
@@ -217,7 +222,7 @@ let _$3 = t => t,
 var Wrapper = styled.div(_t$3 || (_t$3 = _$3`
 width: 72px;
 background: ${0};
-height: 100%;
+height: -webkit-fill-available;
 display: flex;
 align-items: center;
 flex-direction: column;
@@ -229,10 +234,19 @@ function ServersList({
 }) {
   return React__default.createElement(Wrapper, null, React__default.createElement(CircleButton, {
     name: "Home",
-    icon: SvgDiscordLogo
+    icon: SvgDiscordLogo,
+    color: brandColor
   }), React__default.createElement(GuildSperator, null), servers.map(server => {
     return React__default.createElement(Avatar, Object.assign({}, server));
-  }), React__default.createElement(GuildSperator, null));
+  }), React__default.createElement(CircleButton, {
+    name: "Add a Server",
+    icon: PlusIcon,
+    color: success
+  }), React__default.createElement(GuildSperator, null), React__default.createElement(CircleButton, {
+    name: "Explore Public Servers",
+    icon: LightningBoltIcon,
+    color: success
+  }));
 }
 
 export { ServersList };

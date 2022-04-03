@@ -6,3 +6,4 @@ export declare var accent: string;
 export declare var floating: string;
 export declare var nestedFloating: string;
 export declare var brandColor: string;
+export declare var success: string;

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
-import { brandColor, floating, primary } from "../utils/colors";
+import { floating, primary } from "../utils/colors";
 
 var ButtonContainer = styled.div`
 position: relative;
@@ -31,7 +31,8 @@ p {
 &:hover {
     border-radius: 16px;
     cursor: pointer;
-    background: ${brandColor};
+    background: ${props => props.color};
+    color: white;
 }
 `
 
@@ -66,7 +67,8 @@ font-size: 16px;
 
 export interface CircleButtonProps {
     name: string,
-    icon: any
+    icon: any,
+    color: string
 }
 
 export default function CircleButton(data: CircleButtonProps): JSX.Element {
@@ -82,7 +84,7 @@ export default function CircleButton(data: CircleButtonProps): JSX.Element {
 
     return (
         <ButtonContainer onMouseEnter={mouseMoveCallback} onMouseLeave={mouseMoveCallback}>
-            <ButtonShape>
+            <ButtonShape color={data.color}>
                 {
                     data.icon
                         ? <data.icon width="29px" height="20px" />

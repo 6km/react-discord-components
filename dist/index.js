@@ -3,6 +3,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 var styled = _interopDefault(require('styled-components'));
+var solid = require('@heroicons/react/solid');
 
 function _taggedTemplateLiteralLoose(strings, raw) {
   if (!raw) {
@@ -17,6 +18,7 @@ var primary = "#36393f";
 var tertiary = "#202225";
 var floating = "#18191c";
 var brandColor = "#5865F2";
+var success = "#3ba55d";
 
 var _templateObject, _templateObject2, _templateObject3;
 var AvatarContainer = styled.div(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\nposition: relative;\n"])));
@@ -48,7 +50,9 @@ function Avatar(data) {
 
 var _templateObject$1, _templateObject2$1, _templateObject3$1;
 var ButtonContainer = styled.div(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteralLoose(["\nposition: relative;\n"])));
-var ButtonShape = styled.div(_templateObject2$1 || (_templateObject2$1 = _taggedTemplateLiteralLoose(["\nborder-radius: 50%;\nbackground-color: ", ";\nwidth: 48px;\nheight: 48px;\ncolor: white;\noverflow: hidden;\ntext-align: center;\ntransition: 0.15s ease-out;\nuser-select: none;\nposition: relative;\ndisplay: flex;\nalign-items: center;\njustify-content: center;\n\np {\n    height: full;\n    font-family: whitney;\n    font-size: 16px;\n    font-weight: bold;\n}\n\n&:hover {\n    border-radius: 16px;\n    cursor: pointer;\n    background: ", ";\n}\n"])), primary, brandColor);
+var ButtonShape = styled.div(_templateObject2$1 || (_templateObject2$1 = _taggedTemplateLiteralLoose(["\nborder-radius: 50%;\nbackground-color: ", ";\nwidth: 48px;\nheight: 48px;\ncolor: white;\noverflow: hidden;\ntext-align: center;\ntransition: 0.15s ease-out;\nuser-select: none;\nposition: relative;\ndisplay: flex;\nalign-items: center;\njustify-content: center;\n\np {\n    height: full;\n    font-family: whitney;\n    font-size: 16px;\n    font-weight: bold;\n}\n\n&:hover {\n    border-radius: 16px;\n    cursor: pointer;\n    background: ", ";\n    color: white;\n}\n"])), primary, function (props) {
+  return props.color;
+});
 var NamePopup$1 = styled.div(_templateObject3$1 || (_templateObject3$1 = _taggedTemplateLiteralLoose(["\nbackground: ", ";\ncolor: white;\nposition: absolute;\nleft: calc(100% + 22px);\nwidth: max-content;\npadding: 8px;\npadding-left: 12px;\nborder-radius: 4px;\ntop: 6px;\nuser-select: none;\n\nfont-family: whitney !important;\nfont-weight: 900;\nfont-size: 16px;\n\n::before {\n    position: absolute;\n    left: -4px;\n    border-top-left-radius: 2px;\n    transform: rotate(-45deg);\n    top: calc(50% - (10px / 2));\n    height: 8px;\n    width: 8px;\n    background: ", ";\n    content: '';\n}\n"])), floating, floating);
 function CircleButton(data) {
   var _useState = React.useState(false),
@@ -67,7 +71,9 @@ function CircleButton(data) {
   return React__default.createElement(ButtonContainer, {
     onMouseEnter: mouseMoveCallback,
     onMouseLeave: mouseMoveCallback
-  }, React__default.createElement(ButtonShape, null, data.icon ? React__default.createElement(data.icon, {
+  }, React__default.createElement(ButtonShape, {
+    color: data.color
+  }, data.icon ? React__default.createElement(data.icon, {
     width: "29px",
     height: "20px"
   }) : React__default.createElement("p", null, getShortName(data.name))), isHovering && React__default.createElement(NamePopup$1, null, data.name));
@@ -109,15 +115,24 @@ function SvgDiscordLogo(props) {
 }
 
 var _templateObject$3;
-var Wrapper = styled.div(_templateObject$3 || (_templateObject$3 = _taggedTemplateLiteralLoose(["\nwidth: 72px;\nbackground: ", ";\nheight: 100%;\ndisplay: flex;\nalign-items: center;\nflex-direction: column;\npadding-top: 12px;\ngap: 8px;\n"])), tertiary);
+var Wrapper = styled.div(_templateObject$3 || (_templateObject$3 = _taggedTemplateLiteralLoose(["\nwidth: 72px;\nbackground: ", ";\nheight: -webkit-fill-available;\ndisplay: flex;\nalign-items: center;\nflex-direction: column;\npadding-top: 12px;\ngap: 8px;\n"])), tertiary);
 function ServersList(_ref) {
   var servers = _ref.servers;
   return React__default.createElement(Wrapper, null, React__default.createElement(CircleButton, {
     name: "Home",
-    icon: SvgDiscordLogo
+    icon: SvgDiscordLogo,
+    color: brandColor
   }), React__default.createElement(GuildSperator, null), servers.map(function (server) {
     return React__default.createElement(Avatar, Object.assign({}, server));
-  }), React__default.createElement(GuildSperator, null));
+  }), React__default.createElement(CircleButton, {
+    name: "Add a Server",
+    icon: solid.PlusIcon,
+    color: success
+  }), React__default.createElement(GuildSperator, null), React__default.createElement(CircleButton, {
+    name: "Explore Public Servers",
+    icon: solid.LightningBoltIcon,
+    color: success
+  }));
 }
 
 exports.ServersList = ServersList;
