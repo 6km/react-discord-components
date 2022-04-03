@@ -1,13 +1,12 @@
 import React, { useCallback, useState } from "react";
-import { ServerData } from "../utils/types";
 import styled from "styled-components";
 import { brandColor, floating, primary } from "../utils/colors";
 
-var AvatarContainer = styled.div`
+var ButtonContainer = styled.div`
 position: relative;
 `
 
-var AvatarShape = styled.div`
+var ButtonShape = styled.div`
 border-radius: 50%;
 background-color: ${primary};
 width: 48px;
@@ -65,7 +64,12 @@ font-size: 16px;
 }
 `
 
-export default function Avatar(data: ServerData): JSX.Element {
+export interface CircleButtonProps {
+    name: string,
+    icon: any
+}
+
+export default function CircleButton(data: CircleButtonProps): JSX.Element {
     var [isHovering, setHoveringState] = useState(false);
 
     function getShortName(name: string) {
@@ -77,18 +81,18 @@ export default function Avatar(data: ServerData): JSX.Element {
     }, [isHovering])
 
     return (
-        <AvatarContainer onMouseEnter={mouseMoveCallback} onMouseLeave={mouseMoveCallback}>
-            <AvatarShape>
+        <ButtonContainer onMouseEnter={mouseMoveCallback} onMouseLeave={mouseMoveCallback}>
+            <ButtonShape>
                 {
                     data.icon
-                        ? <img src={data.icon} width="100%" height="100%" />
+                        ? <data.icon width="29px" height="20px" />
                         : <p>{getShortName(data.name)}</p>
                 }
-            </AvatarShape>
+            </ButtonShape>
             {
                 isHovering &&
                 <NamePopup>{data.name}</NamePopup>
             }
-        </AvatarContainer>
+        </ButtonContainer>
     )
 }
