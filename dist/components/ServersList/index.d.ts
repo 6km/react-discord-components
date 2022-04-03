@@ -1,4 +1,4 @@
-import { ServerData } from "../../types";
+import { ServerData } from "../../utils/types";
 export interface ServersListProps {
     servers: ServerData[];
 }
