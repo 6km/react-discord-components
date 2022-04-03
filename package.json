@@ -24,7 +24,8 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.0.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -34,6 +35,7 @@
     "@types/node": "^12.12.38",
     "@types/react": "^16.9.27",
     "@types/react-dom": "^16.9.7",
+    "@types/styled-components": "^5.1.24",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "babel-eslint": "^10.0.3",
@@ -59,5 +61,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "styled-components": "^5.3.5"
+  }
 }

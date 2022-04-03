@@ -1,9 +1,4 @@
-export interface ServerData {
-    name: string;
-    icon?: any;
-    verified?: boolean;
-    partnered?: boolean;
-}
+import { ServerData } from "../../types";
 export interface ServersListProps {
     servers: ServerData[];
 }

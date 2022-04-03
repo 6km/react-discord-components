@@ -1,16 +1,24 @@
 import React from "react"
-
-export interface ServerData {
-    name: string,
-    icon?: any,
-    verified?: boolean,
-    partnered?: boolean,
-}
+import styled from "styled-components"
+import { ServerData } from "../../types"
+import Avatar from "../Avatar"
 
 export interface ServersListProps {
     servers: ServerData[]
 }
 
+var Wrapper = styled.div`
+width: 72px;
+`
+
 export default function ServersList({ servers }: ServersListProps): JSX.Element {
-    return <div>Example Component: {servers[0].name}</div>
+    return (
+        <Wrapper>
+            {servers.map((server) => {
+                return (
+                    <Avatar {...server} />
+                )
+            })}
+        </Wrapper>
+    )
 }
