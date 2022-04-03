@@ -1,7 +1,52 @@
+/* Whitney */
+@font-face {
+    font-family: whitney;
+    font-style: normal;
+    font-weight: 300;
+    src: url('https://github.com/6km/DiscordFonts/raw/master/Whitney/Whitney-300.woff') format('woff');
+}
+@font-face {
+    font-family: whitney;
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://github.com/6km/DiscordFonts/raw/master/Whitney/Whitney-400.woff') format('woff');
+}
 @font-face {
     font-family: whitney;
     font-style: normal;
     font-weight: 500;
-    src: local('Whitney-Semibold'), url('https://fonts.cdnfonts.com/s/22780/whitneysemibold.woff') format('woff');
+    src: url('https://github.com/6km/DiscordFonts/raw/master/Whitney/Whitney-500.woff') format('woff');
+}
+@font-face {
+    font-family: whitney;
+    font-style: normal;
+    font-weight: 600;
+    src: url('https://github.com/6km/DiscordFonts/raw/master/Whitney/Whitney-600.woff') format('woff');
+}
+@font-face {
+    font-family: whitney;
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://github.com/6km/DiscordFonts/raw/master/Whitney/Whitney-700.woff') format('woff');
 }
 
+
+/* Ginto Nord */
+@font-face {
+    font-family: 'Ginto Nord';
+    font-style: normal;
+    font-weight: 500;
+    src: url('https://github.com/6km/DiscordFonts/raw/master/Ginto-Nord/Ginto-Nord-500.woff') format('woff');
+}
+@font-face {
+    font-family: 'Ginto Nord';
+    font-style: normal;
+    font-weight: 600;
+    src: url('https://github.com/6km/DiscordFonts/raw/master/Ginto-Nord/Ginto-Nord-600.woff') format('woff');
+}
+@font-face {
+    font-family: 'Ginto Nord';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://github.com/6km/DiscordFonts/raw/master/Ginto-Nord/Ginto-Nord-700.woff') format('woff');
+}

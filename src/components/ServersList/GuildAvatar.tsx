@@ -1,7 +1,9 @@
 import React, { useCallback, useState } from "react";
-import { ServerData } from "../utils/types";
+import { ServerData } from "../../utils/types";
 import styled from "styled-components";
-import { brandColor, floating, primary } from "../utils/colors";
+import { brandColor, floating, primary } from "../../utils/colors";
+import { ReactComponent as PartnerIcon } from "../../Icons/Partner.svg";
+import { ReactComponent as VerifiedIcon } from "../../Icons/Verified.svg";
 
 var AvatarContainer = styled.div`
 position: relative;
@@ -34,6 +36,11 @@ p {
     cursor: pointer;
     background: ${brandColor};
 }
+
+&:active {
+    transition: 0.08s linear;
+    transform: translateY(0.7px);
+}
 `
 
 var NamePopup = styled.div`
@@ -47,6 +54,10 @@ padding-left: 12px;
 border-radius: 4px;
 top: 6px;
 user-select: none;
+
+display: flex;
+gap: 4px;
+align-items: center;
 
 font-family: whitney !important;
 font-weight: 900;
@@ -87,7 +98,17 @@ export default function Avatar(data: ServerData): JSX.Element {
             </AvatarShape>
             {
                 isHovering &&
-                <NamePopup>{data.name}</NamePopup>
+                <NamePopup>
+                    {
+                        (data.verified
+                            ? <VerifiedIcon />
+                            : data.partnered
+                                ? <PartnerIcon />
+                                : null
+                        )
+                    }
+                    {data.name}
+                </NamePopup>
             }
         </AvatarContainer>
     )

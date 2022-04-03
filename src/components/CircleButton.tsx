@@ -6,12 +6,12 @@ var ButtonContainer = styled.div`
 position: relative;
 `
 
-var ButtonShape = styled.div`
+var ButtonShape = styled.div<{ iconColor?: string }>`
 border-radius: 50%;
 background-color: ${primary};
 width: 48px;
 height: 48px;
-color: white;
+color: ${props => props.iconColor || props.color};
 overflow: hidden;
 text-align: center;
 transition: 0.15s ease-out;
@@ -33,6 +33,11 @@ p {
     cursor: pointer;
     background: ${props => props.color};
     color: white;
+}
+
+&:active {
+    transition: 0.08s linear;
+    transform: translateY(0.7px);
 }
 `
 
@@ -68,7 +73,8 @@ font-size: 16px;
 export interface CircleButtonProps {
     name: string,
     icon: any,
-    color: string
+    color: string,
+    iconColor?: string
 }
 
 export default function CircleButton(data: CircleButtonProps): JSX.Element {
@@ -84,7 +90,7 @@ export default function CircleButton(data: CircleButtonProps): JSX.Element {
 
     return (
         <ButtonContainer onMouseEnter={mouseMoveCallback} onMouseLeave={mouseMoveCallback}>
-            <ButtonShape color={data.color}>
+            <ButtonShape color={data.color} iconColor={data.iconColor}>
                 {
                     data.icon
                         ? <data.icon width="29px" height="20px" />
